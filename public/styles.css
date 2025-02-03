@@ -1,0 +1,75 @@
+/* Alapbeállítások */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* A háttérkép túlcsordulásának elkerülése */
+}
+
+/* Háttérkép beállítása */
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover; /* Kitölti az egész képernyőt */
+    display: flex;
+    justify-content: center; /* Vízszintes középre igazítás */
+    align-items: center; /* Függőleges középre igazítás */
+    text-align: center; /* Szöveg középre igazítása */
+    color: #fff; /* Fehér szöveg */
+    position: relative; /* Szükséges a pszeudo-elem pozicionálásához */
+}
+
+/* Háttér elsötétítése és elhomályosítása */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Átlátszó fekete réteg (sötétítés) */
+    backdrop-filter: blur(5px); /* Elhomályosítás */
+    z-index: -1; /* A háttérkép mögé helyezzük */
+}
+
+/* Tartalom középre igazítása */
+.container {
+    z-index: 1; /* A tartalom legyen a rétegek tetején */
+}
+
+/* Fő cím (h1) */
+h1 {
+    font-family: 'Black Ops One', cursive;
+    font-size: 6vw; /* Nagy méretű szöveg */
+    font-weight: 400;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+	color: yellow;
+	opacity: 90%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Alszöveg (p) */
+p {
+    font-size: 3vw; /* Közepes méretű szöveg */
+    margin: 1rem 0 0 0;
+}
+
+/* Reszponzív beállítások */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 5vh; /* Kisebb méretű szöveg mobilon */
+    }
+    p {
+        font-size: 3vh; /* Kisebb méretű szöveg mobilon */
+    }
+}
+
+/* @media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+} */
