@@ -28,7 +28,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* Átlátszó fekete réteg (sötétítés) */
-    backdrop-filter: blur(5px); /* Elhomályosítás */
+    backdrop-filter: blur(3px); /* Elhomályosítás */
     z-index: -1; /* A háttérkép mögé helyezzük */
 }
 
