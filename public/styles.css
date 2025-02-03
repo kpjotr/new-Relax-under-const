@@ -1,8 +1,8 @@
 /* Alapbeállítások */
-body, html {
+html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100%; /* Teljes magasság a html és body elemeknek */
     font-family: 'Arial', sans-serif;
     overflow: hidden; /* A háttérkép túlcsordulásának elkerülése */
 }
@@ -11,12 +11,8 @@ body, html {
 body {
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover; /* Kitölti az egész képernyőt */
-    display: flex;
-    justify-content: center; /* Vízszintes középre igazítás */
-    align-items: center; /* Függőleges középre igazítás */
-    text-align: center; /* Szöveg középre igazítása */
     color: #fff; /* Fehér szöveg */
-    position: relative; /* Szükséges a pszeudo-elem pozicionálásához */
+    position: absolute; /* Szükséges a pszeudo-elem pozicionálásához */
 }
 
 /* Háttér elsötétítése és elhomályosítása */
@@ -28,48 +24,58 @@ body::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* Átlátszó fekete réteg (sötétítés) */
-    backdrop-filter: blur(3px); /* Elhomályosítás */
+    backdrop-filter: blur(5px); /* Elhomályosítás */
     z-index: -1; /* A háttérkép mögé helyezzük */
 }
 
 /* Tartalom középre igazítása */
 .container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     z-index: 1; /* A tartalom legyen a rétegek tetején */
+    padding: 20px; /* Kis térköz a szélekhez */
+    box-sizing: border-box;
+    margin-top: 35vh;
 }
 
 /* Fő cím (h1) */
 h1 {
     font-family: 'Black Ops One', cursive;
-    font-size: 6vw; /* Nagy méretű szöveg */
     font-weight: 400;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 	color: yellow;
 	opacity: 90%;
+    font-size: 4rem; /* Nagy méretű szöveg */
     margin: 0;
     padding: 0;
 }
 
 /* Alszöveg (p) */
 p {
-    font-size: 3vw; /* Közepes méretű szöveg */
+    font-size: 2rem; /* Közepes méretű szöveg */
     margin: 1rem 0 0 0;
 }
 
 /* Reszponzív beállítások */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     h1 {
-        font-size: 5vh; /* Kisebb méretű szöveg mobilon */
+        font-size: 3rem; /* Kisebb méretű szöveg mobilon */
     }
     p {
-        font-size: 3vh; /* Kisebb méretű szöveg mobilon */
+        font-size: 1.5rem; /* Kisebb méretű szöveg mobilon */
+    }
+    body::before {
+        backdrop-filter: blur(3px);
     }
 }
 
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
     h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Még kisebb méretű szöveg kis képernyőkön */
     }
     p {
-        font-size: 1.2rem;
+        font-size: 1.2rem; /* Még kisebb méretű szöveg kis képernyőkön */
     }
-} */
+}
